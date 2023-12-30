@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>TITLE</title>
+  {% load static %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+.back{
+  background-image:url("{% static 'image/wind.jpg' %}");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+.white{
+color:white;
+}
+.nspace{
+margin:15px 15px 30px 30px;
+padding:9px 10px;
+background: cyan;
+width:500px
+}
+.space{
+margin:10px 30px;
+padding:10px 10px;
+background: cyan;
+width:500px
+}
+.gap{
+padding:10px 20px;
+}
+</style>
+  
+</head>
+
+<body class="back">
+ <div>
+	<div class="jumbotron">
+	<h1 style="text-align:center">PREDICTION OF WIND POWER GENERATION</h1>
+	
+	</div>
+     <!-- Main Input For Receiving Query to our ML -->
+	 <center>
+			 <form class="form-group" action="{% url 'predict' %}"method="post">
+			{% csrf_token %}
+			<div class="row">
+			<div class="gap col-md-6 ">
+				<label class="white" for="">Wind Speed</label>
+				<input type="number" class="space form-control" step="0.01" name="Wind_speed" placeholder="Wind_speed" required="required" /><br>
+
+				<label class="white"  for="">Wind Direction</label>
+				<input type="number" class="space form-control" step="0.01" name="Wind_direction" placeholder="Wind_direction" required="required" /><br>
+ 			</div>
+			<div class="gap col-md-6"
+				<label class="white"  for="">Pressure</label>
+				<input type="number" class="space form-control" step="0.01" name="Pressure" placeholder="Pressure" required="required" /><br>
+
+				<label class="white" for="">Air Temperature</label>
+				<input type="number" class="space form-control" step="0.01" name="Air_temperature" placeholder="Air_temperature" required="required" /><br>
+ 			</div>
+
+
+
+</div>
+
+
+<div style="padding:2% 35%">
+  <button type="submit" class="btn btn-success btn-block" style="width:350px;padding:20px">Predict</button>		
+</div>
+      
+    </form>
+
+   <br>
+   <br>
+<div  style="background:yellow;padding:2% 40%">
+   {{ prediction_text }}
+</div>
+ </div>
+
+
+</body>
+</html>

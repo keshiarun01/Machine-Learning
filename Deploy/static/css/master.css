@@ -1,0 +1,16 @@
+body{
+  background:url("/static/img2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.container1{
+  width: 400px;
+  height: 200px;
+  border-style: solid;
+  background-color: rgb(143, 141, 138, 0.3);
+}
+form{
+  margin-top: 50px;
+  margin-left: 40px;
+}

@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<body>
+    <div style="background-color: #e9ecef;">
+        <a class="navbar-brand text-dark" style="margin-left: 30px;" href="{% url 'doctor_patient_details_all' %}">All</a>
+        <a class="navbar-brand text-dark" style="margin-left: 10px;" href="{% url 'doctor_patient_details_last' %}">Last</a>
+    </div>
+    <br>
+        <center>
+            <img src="{{ model.image.url }}" height="200" width="200"><br>
+            {{model.type1}}
+            <form action="{% url 'doctor_patient_details_last' %}" method="POST">
+                {% csrf_token %}
+                {% for f in form %}
+                <p>
+                    {{ f.label_tag }}<br>
+                    {{ f }}
+                    
+                </p>
+                {% endfor %}
+                <br>
+            
+            {% if not msg %}
+                <input type="submit">
+            {% else %}
+                {{ msg }}
+            {% endif %}
+                
+            
+            </form>
+            
+        </center>
+        </div>
+        
+        
+{% endblock content %}
+</body>
+</html>
