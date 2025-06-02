@@ -87,5 +87,5 @@ The project successfully demonstrates the use of deep learning to classify asthm
 
 ## Contributors
 
-- **Keshika A** - [GitHub](https://github.com/keshikaa)
+- **Keshika A** - 
 - **Kevin Austin**
